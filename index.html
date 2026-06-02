@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Lio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Ripple Button Demo</title>
 
 <style>
 
@@ -14,73 +11,21 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:Poppins,sans-serif;
 }
 
 body{
 background:#eef3ff;
-min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:hidden;
+min-height:100vh;
 }
 
 .container{
 width:100%;
-max-width:420px;
+max-width:400px;
 padding:20px;
-text-align:center;
-}
-
-.hidden{
-display:none!important;
-}
-
-.trex-wrapper{
-display:flex;
-justify-content:center;
-margin-bottom:10px;
-}
-
-.trex-gif{
-width:220px;
-animation:float 2s ease-in-out infinite;
-}
-
-@keyframes float{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-12px);
-}
-}
-
-.title{
-color:#234c9f;
-font-size:24px;
-font-weight:700;
-margin-bottom:25px;
-line-height:1.4;
-}
-
-.pin-box{
-display:flex;
-justify-content:center;
-gap:12px;
-margin-bottom:25px;
-}
-
-.dot{
-width:18px;
-height:18px;
-border:2px solid #2b58b5;
-border-radius:50%;
-}
-
-.dot.filled{
-background:#2b58b5;
 }
 
 .keypad{
@@ -90,125 +35,39 @@ gap:15px;
 }
 
 .btn{
-height:70px;
+height:75px;
 border:none;
-border-radius:18px;
+border-radius:20px;
 background:white;
 font-size:28px;
 font-weight:700;
 color:#234c9f;
 cursor:pointer;
 box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+position:relative;
+overflow:hidden;
+
+transition:transform .15s ease;
 }
 
 .btn:active{
 transform:scale(.95);
 }
 
-.clue{
-margin-top:20px;
-color:#7f89b6;
-}
-
-.hi-wrapper{
-text-align:center;
-}
-
-.hi-gif{
-width:240px;
-margin-bottom:20px;
-}
-
-.hi-text{
-font-size:32px;
-font-weight:700;
-color:#1847b7;
-margin-bottom:30px;
-line-height:1.4;
-}
-
-.tap-btn{
-border:none;
-background:#1847b7;
-color:white;
-font-size:22px;
-font-weight:600;
-padding:18px 70px;
-border-radius:50px;
-cursor:pointer;
-}
-
-.tap-btn:active{
-transform:scale(.95);
-}
-
-.fade-in{
-animation:fadeIn .8s ease forwards;
-}
-
-.fade-out{
-animation:fadeOut .5s ease forwards;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes fadeOut{
-from{
-opacity:1;
-}
-to{
-opacity:0;
-}
-}
-
-.cake{
-font-size:100px;
-animation:floatCake 2s ease-in-out infinite;
-}
-
-@keyframes floatCake{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-15px);
-}
-}
-
-.birthday h1{
-color:#ff4f81;
-margin:15px 0;
-}
-
-.birthday p{
-font-size:18px;
-line-height:1.8;
-color:#555;
-}
-
-.confetti{
-position:fixed;
-width:10px;
-height:10px;
+.ripple{
+position:absolute;
 border-radius:50%;
-animation:fall linear infinite;
+background:rgba(35,76,159,.25);
+transform:scale(0);
+pointer-events:none;
+animation:ripple .6s ease-out;
 }
 
-@keyframes fall{
-from{
-transform:translateY(-100vh);
-}
+@keyframes ripple{
 to{
-transform:translateY(110vh);
+transform:scale(4);
+opacity:0;
 }
 }
 
@@ -218,314 +77,78 @@ transform:translateY(110vh);
 
 <div class="container">
 
-<!-- PIN PAGE -->
-
-<div id="pinPage">
-
-<div class="trex-wrapper">
-<img src="https://pic.funnygifsbox.com/uploads/2020/06/funnygifsbox.com-2020-06-19-08-13-29-16.gif" class="trex-gif">
-</div>
-
-<h2 class="title">
-Hi Lio, ayo tebak passwordnya,<br>
-I bet u know!!
-</h2>
-
-<div class="pin-box">
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-<div class="dot"></div>
-</div>
-
 <div class="keypad">
-<button class="btn" onclick="addNumber(1)">1</button>
-<button class="btn" onclick="addNumber(2)">2</button>
-<button class="btn" onclick="addNumber(3)">3</button>
-<button class="btn" onclick="addNumber(4)">4</button>
-<button class="btn" onclick="addNumber(5)">5</button>
-<button class="btn" onclick="addNumber(6)">6</button>
-<button class="btn" onclick="addNumber(7)">7</button>
-<button class="btn" onclick="addNumber(8)">8</button>
-<button class="btn" onclick="addNumber(9)">9</button>
+<button class="btn">1</button>
+<button class="btn">2</button>
+<button class="btn">3</button>
+
+<button class="btn">4</button>
+<button class="btn">5</button>
+<button class="btn">6</button>
+
+<button class="btn">7</button>
+<button class="btn">8</button>
+<button class="btn">9</button>
 
 <div></div>
-
-<button class="btn" onclick="addNumber(0)">0</button>
-
-<button class="btn" onclick="removeNumber()">⌫</button>
-</div>
-
-<div class="clue">
-clue : your birthday
-</div>
-
-</div>
-
-<!-- HI PAGE -->
-
-<div id="hiPage" class="hidden">
-
-<div class="hi-wrapper">
-
-<img src="IMG_8875.GIF" class="hi-gif">
-
-<h1 class="hi-text">
-hi lol, how are you 👋🏻
-</h1>
-
-<button class="tap-btn" onclick="openTalk()">
-tap disinii
-</button>
-
-</div>
-
-</div>
-
-<!-- TALK PAGE -->
-
-<div id="talkPage" class="hidden">
-
-<div class="hi-wrapper">
-
-<img src="IMG_8870.GIF" class="hi-gif">
-
-<h1 class="hi-text">
-ik we don't talk anymore but...
-</h1>
-
-<button class="tap-btn" onclick="openGuess()">
-pencettt
-</button>
-
-</div>
-
-</div>
-
-<!-- GUESS PAGE -->
-
-<div id="guessPage" class="hidden">
-
-<div class="hi-wrapper">
-
-<img src="IMG_8878.GIF" class="hi-gif">
-
-<h1 class="hi-text">
-guess who's bday is today :)
-</h1>
-
-<button class="tap-btn" onclick="openBirthday()">
-pencett
-</button>
-
-</div>
-
-</div>
-
-<!-- BIRTHDAY PAGE -->
-
-<div id="birthdayPage" class="birthday hidden">
-
-<div class="cake">🎂</div>
-
-<h1>Happy Birthday Lio!</h1>
-
-<p>
-Selamat ulang tahun.<br><br>
-
-Semoga panjang umur,
-sehat selalu,
-bahagia setiap hari,
-dan semua impian yang kamu harapkan
-bisa terwujud satu per satu.
-
-<br><br>
-
-Terima kasih sudah menjadi orang yang spesial.
-Semoga hari ini menjadi hari yang penuh
-kebahagiaan dan banyak kejutan menyenangkan.
-</p>
-
+<button class="btn">0</button>
+<div></div>
 </div>
 
 </div>
 
 <script>
 
-const correctPin = "260710";
+function createRipple(event){
 
-let inputPin = "";
+const button = event.currentTarget;
 
-let wrongAttempts = 0;
+const ripple = document.createElement("span");
 
-const wrongMessages = [
-"APA HAYOOOO",
-"😏",
-"ngetik apa sih cil",
-"Lio bilekk : 😡"
-];
-
-function updateDots(){
-
-const dots =
-document.querySelectorAll(".dot");
-
-dots.forEach((dot,index)=>{
-
-if(index < inputPin.length){
-dot.classList.add("filled");
-}else{
-dot.classList.remove("filled");
-}
-
-});
-
-}
-
-function addNumber(num){
-
-if(inputPin.length >= 6) return;
-
-inputPin += num;
-
-updateDots();
-
-if(inputPin.length === 6){
-
-setTimeout(()=>{
-
-if(inputPin === correctPin){
-
-document
-.getElementById("pinPage")
-.classList.add("hidden");
-
-const hiPage =
-document.getElementById("hiPage");
-
-hiPage.classList.remove("hidden");
-hiPage.classList.add("fade-in");
-
-}else{
-
-alert(
-wrongMessages[
-wrongAttempts % wrongMessages.length
-]
+const diameter = Math.max(
+button.clientWidth,
+button.clientHeight
 );
 
-wrongAttempts++;
+const radius = diameter / 2;
 
-inputPin = "";
-updateDots();
+ripple.classList.add("ripple");
+
+ripple.style.width =
+ripple.style.height =
+`${diameter}px`;
+
+ripple.style.left =
+`${event.clientX -
+button.getBoundingClientRect().left -
+radius}px`;
+
+ripple.style.top =
+`${event.clientY -
+button.getBoundingClientRect().top -
+radius}px`;
+
+const oldRipple =
+button.querySelector(".ripple");
+
+if(oldRipple){
+oldRipple.remove();
+}
+
+button.appendChild(ripple);
 
 }
 
-},300);
+document
+.querySelectorAll(".btn")
+.forEach(button=>{
 
-}
+button.addEventListener(
+"click",
+createRipple
+);
 
-}
-
-function removeNumber(){
-
-inputPin =
-inputPin.slice(0,-1);
-
-updateDots();
-
-}
-
-function openTalk(){
-
-const hiPage =
-document.getElementById("hiPage");
-
-hiPage.classList.add("fade-out");
-
-setTimeout(()=>{
-
-hiPage.classList.add("hidden");
-
-const talkPage =
-document.getElementById("talkPage");
-
-talkPage.classList.remove("hidden");
-talkPage.classList.add("fade-in");
-
-},500);
-
-}
-
-function openGuess(){
-
-const talkPage =
-document.getElementById("talkPage");
-
-talkPage.classList.add("fade-out");
-
-setTimeout(()=>{
-
-talkPage.classList.add("hidden");
-
-const guessPage =
-document.getElementById("guessPage");
-
-guessPage.classList.remove("hidden");
-guessPage.classList.add("fade-in");
-
-},500);
-
-}
-
-function openBirthday(){
-
-const guessPage =
-document.getElementById("guessPage");
-
-guessPage.classList.add("fade-out");
-
-setTimeout(()=>{
-
-guessPage.classList.add("hidden");
-
-const birthdayPage =
-document.getElementById("birthdayPage");
-
-birthdayPage.classList.remove("hidden");
-birthdayPage.classList.add("fade-in");
-
-createConfetti();
-
-},500);
-
-}
-
-function createConfetti(){
-
-for(let i=0;i<100;i++){
-
-const confetti =
-document.createElement("div");
-
-confetti.classList.add("confetti");
-
-confetti.style.left =
-Math.random()*100+"vw";
-
-confetti.style.background =
-`hsl(${Math.random()*360},100%,50%)`;
-
-confetti.style.animationDuration =
-(Math.random()*3+2)+"s";
-
-document.body.appendChild(confetti);
-
-}
-
-}
+});
 
 </script>
 
