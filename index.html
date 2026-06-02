@@ -120,10 +120,11 @@ margin-bottom:20px;
 }
 
 .hi-text{
-font-size:36px;
+font-size:32px;
 font-weight:700;
 color:#1847b7;
 margin-bottom:30px;
+line-height:1.4;
 }
 
 .tap-btn{
@@ -272,11 +273,31 @@ clue : your birthday
 <img src="IMG_8875.GIF" class="hi-gif">
 
 <h1 class="hi-text">
-hi, how are you 👋🏻
+hi lol, how are you 👋🏻
+</h1>
+
+<button class="tap-btn" onclick="openTalk()">
+tap disinii
+</button>
+
+</div>
+
+</div>
+
+<!-- TALK PAGE -->
+
+<div id="talkPage" class="hidden">
+
+<div class="hi-wrapper">
+
+<img src="IMG_8870.GIF" class="hi-gif">
+
+<h1 class="hi-text">
+ik we don't talk anymore but...
 </h1>
 
 <button class="tap-btn" onclick="openGuess()">
-tap disinii
+pencettt
 </button>
 
 </div>
@@ -417,7 +438,7 @@ updateDots();
 
 }
 
-function openGuess(){
+function openTalk(){
 
 const hiPage =
 document.getElementById("hiPage");
@@ -427,6 +448,27 @@ hiPage.classList.add("fade-out");
 setTimeout(()=>{
 
 hiPage.classList.add("hidden");
+
+const talkPage =
+document.getElementById("talkPage");
+
+talkPage.classList.remove("hidden");
+talkPage.classList.add("fade-in");
+
+},500);
+
+}
+
+function openGuess(){
+
+const talkPage =
+document.getElementById("talkPage");
+
+talkPage.classList.add("fade-out");
+
+setTimeout(()=>{
+
+talkPage.classList.add("hidden");
 
 const guessPage =
 document.getElementById("guessPage");
